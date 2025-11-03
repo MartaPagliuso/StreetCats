@@ -5,6 +5,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { AddSignalComponent } from './pages/add-signal/add-signal.component';
 import { SignalsListComponent } from './pages/signals-list/signals-list.component';
 import { SignalDetailComponent } from './pages/signal-detail/signal-detail.component';
+import { authGuard } from './guards/auth-guard';
 
 
 export const routes: Routes = [
@@ -22,7 +23,8 @@ export const routes: Routes = [
   },
   {
     path: 'add-signals',
-    component: AddSignalComponent
+    component: AddSignalComponent,
+    canActivate: [authGuard]
   }, 
   {
     path: 'signals',

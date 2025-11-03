@@ -7,7 +7,7 @@
     </div>
 
     <div class="action-container" [class.logged-in]="authService.isAuthenticated()">
-      <a [routerLink]="authService.isAuthenticated() ? '/add-signals' : '/login'">Aggiungi Segnalazione</a>
+      <a routerLink="/add-signals">Aggiungi Segnalazione</a>
 
       @if (authService.isAuthenticated()) {
         <span class="welcome-text">
