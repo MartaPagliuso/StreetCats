@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <div class="left-side">
-  a
+  <img src="../../../assets/LoginPage/paws.png" alt="paws">
 </div>
 
 <div class="right-side">
@@ -32,11 +32,10 @@
       <label>Password</label>
       <input
         type="password"
+        placeholder="••••••••"
         [(ngModel)]="password"
         (keypress)="onKeyPress($event)"
         [disabled]="isLoading()">
-
-      <a href="">Password dimenticata?</a>
     </div>
 
     <div class="button-container">
