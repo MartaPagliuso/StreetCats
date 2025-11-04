@@ -207,3 +207,97 @@ h1 {
 .login-link:hover {
   color: color.scale($red, $lightness: -20%);
 }
+
+// --------------- RESP0NSIVE ---------------
+
+@media (max-width: 1024px) {
+  .left-side {
+    display: none;
+  }
+
+  .right-side {
+    flex: 1;
+    width: 100%;
+  }
+
+  .content-container {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .right-side {
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  .header-container {
+    margin-right: 20px;
+  }
+
+  .content-container {
+    margin: 40px 30px;
+    width: calc(100% - 60px);
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  .input-container label {
+    font-size: 20px;
+  }
+
+  .input-container input {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .register-button {
+    width: 100%;
+    max-width: 430px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    margin-right: 15px;
+    
+    .title {
+      font-size: 20px;
+    }
+  }
+
+  .content-container {
+    margin: 30px 20px;
+    width: calc(100% - 40px);
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .input-container label {
+    font-size: 18px;
+  }
+
+  .input-container input {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+
+  .register-button {
+    font-size: 18px;
+  }
+
+  .login-container {
+    font-size: 14px;
+  }
+
+  .error-message,
+  .success-message {
+    font-size: 13px;
+    padding: 10px 15px;
+  }
+}

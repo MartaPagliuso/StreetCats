@@ -622,8 +622,30 @@ main {
 }
 
 @media (max-width: 768px) {
+  header {
+    padding: 1rem;
+  }
+
+  #logo {
+    font-size: 20px;
+  }
+
+  .header-links {
+    gap: 1rem;
+
+    a, .logout-btn {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.85rem;
+    }
+  }
+
   main {
     padding: 1rem;
+  }
+
+  .breadcrumb {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
   }
 
   .details-section {
@@ -646,8 +668,47 @@ main {
     }
   }
 
+  .map-container {
+    padding: 1rem;
+
+    .map {
+      height: 250px;
+    }
+  }
+
   .coordinates-info {
     grid-template-columns: 1fr;
+  }
+
+  .description-section {
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    .description-content {
+      padding: 1rem;
+    }
+  }
+
+  .comments-section {
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+
+  .add-comment-form {
+    textarea {
+      max-width: 100%;
+    }
+
+    .form-actions {
+      justify-content: stretch;
+
+      button {
+        width: 100%;
+        justify-content: center;
+      }
+    }
   }
 }
 
@@ -660,6 +721,106 @@ main {
     .header-links {
       width: 100%;
       justify-content: center;
+      gap: 0.8rem;
+    }
+  }
+
+  #logo {
+    font-size: 18px;
+  }
+
+  main {
+    padding: 0.8rem;
+  }
+
+  .breadcrumb {
+    font-size: 0.8rem;
+  }
+
+  .details-section {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .meta-info {
+    gap: 0.6rem;
+  }
+
+  .meta-item {
+    font-size: 0.85rem;
+  }
+
+  .image-container img {
+    max-height: 300px;
+  }
+
+  .map-container {
+    .map {
+      height: 200px;
+    }
+
+    h3 {
+      font-size: 1rem;
+    }
+  }
+
+  .description-section {
+    h2 {
+      font-size: 1.1rem;
+    }
+
+    .description-content {
+      padding: 0.8rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  .comments-section {
+    h2 {
+      font-size: 1.1rem;
+    }
+  }
+
+  .add-comment-form {
+    label {
+      font-size: 0.9rem;
+    }
+
+    textarea {
+      font-size: 0.9rem;
+      padding: 0.6rem 0.8rem;
+    }
+
+    .form-actions button {
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  .comment-item {
+    padding: 1rem;
+
+    .comment-author strong {
+      font-size: 0.9rem;
+    }
+
+    .comment-date {
+      font-size: 0.8rem;
+    }
+
+    .comment-body {
+      font-size: 0.9rem;
+    }
+  }
+
+  .comments-empty-state {
+    padding: 2rem 1rem;
+
+    p {
+      font-size: 0.85rem;
     }
   }
 }

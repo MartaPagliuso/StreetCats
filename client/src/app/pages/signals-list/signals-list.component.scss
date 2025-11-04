@@ -384,7 +384,8 @@ header {
   }
 }
 
-// Responsive
+// ---------------- RESPONSIVE ----------------
+
 @media (max-width: 1024px) {
   .signals-container {
     grid-template-columns: 1fr;
@@ -395,21 +396,168 @@ header {
     border-right: none;
     border-bottom: 1px solid #e2e8f0;
   }
+
+  .map-legend {
+    bottom: 10px;
+    right: 10px;
+    padding: 0.8rem;
+  }
 }
 
 @media (max-width: 768px) {
   header {
     padding: 1rem;
-    flex-direction: column;
-    gap: 1rem;
+  }
 
-    .header-links {
-      width: 100%;
-      justify-content: center;
+  #logo {
+    font-size: 20px;
+  }
+
+  .header-link {
+    gap: 0.8rem;
+    
+    a, .logout-btn {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.85rem;
     }
   }
 
   .signals-container {
-    height: calc(100vh - 110px);
+    height: calc(100vh - 70px);
+    grid-template-rows: 50vh 50vh;
+  }
+
+  .signals-sidebar .sidebar-header {
+    padding: 1rem;
+
+    h2 {
+      font-size: 1.3rem;
+    }
+
+    .subtitle {
+      font-size: 0.85rem;
+    }
+
+    .btn-add {
+      font-size: 1rem;
+      padding: 0.7rem 0.9rem;
+    }
+  }
+
+  .signal-card {
+    min-height: 300px;
+  }
+
+  .card-image {
+    height: 150px;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .map-legend {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 0.8rem 0.5rem;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  #logo {
+    font-size: 18px;
+  }
+
+  .header-link {
+    width: 100%;
+    justify-content: center;
+    gap: 0.8rem;
+    
+    a, .logout-btn {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+    }
+  }
+
+  .signals-container {
+    height: calc(100vh - 90px);
+  }
+
+  .signals-sidebar .sidebar-header {
+    padding: 1rem;
+
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    .btn-add {
+      font-size: 0.9rem;
+      padding: 0.6rem 0.8rem;
+    }
+  }
+
+  .signals-list {
+    padding: 0.8rem;
+  }
+
+  .signal-card {
+    min-height: 280px;
+  }
+
+  .card-image {
+    height: 140px;
+  }
+
+  .card-content {
+    padding: 0.8rem;
+  }
+
+  .card-title {
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .card-meta {
+    gap: 0.3rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .meta-item {
+    font-size: 0.8rem;
+  }
+
+  .btn-view {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .map-legend {
+    bottom: 10px;
+    right: 10px;
+    padding: 0.7rem;
+    font-size: 0.8rem;
+  }
+
+  .legend-icon {
+    width: 10px;
+    height: 10px;
+  }
+
+  .loading-state,
+  .error-state,
+  .empty-state {
+    padding: 2rem 1rem;
+
+    h3 {
+      font-size: 1.1rem;
+    }
+
+    p {
+      font-size: 0.85rem;
+    }
   }
 }
