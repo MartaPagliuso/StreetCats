@@ -62,12 +62,128 @@
 Prima di iniziare, assicurati di aver installato:
 - **Node.js** (v18 o superiore)
 - **npm** (v9 o superiore)
-- 
+- **PostgreSQL** (v14 o superiore)
+- **Angular CLI** (v20.3.6)
 
+Per verificare le versione installate usa i comandi:
+``` bash
+node --version
+npm --version
+psql --version
+ng version
+```
 
+## 🚀 Installazione
 
+### 1. Clona il Repository
 
+``` bash
+git clone https://github.com/MartaPagliuso/StreetCats.git
+cd streetcats
+```
 
+### 2. Setup Backend
+
+``` bash
+cd server
+npm install
+```
+
+### 3. Setup Frontend
+
+``` bash
+cd ../client
+npm install
+```
+
+## 🎮 Utilizzo
+
+### Avvio sviluppo
+
+1. Avvia il BackEnd
+``` bash
+cd server
+npm start
+```
+Il server sarà disponibile su `http://localhost:3000`
+
+2. Avvia il Frontend
+``` bash
+cd ../client
+ng serve
+```
+
+L'applicazione sarà disponibile su `http://localhost:4200`
+
+### Principali Endpoint
+
+**Autenticazione**
+- `POST /auth` - Login utente
+- `POST /register` - Registrazione utente
+- `POST /refresh` - Rinnova Access Token
+- `POST /logout` - Logout utente
+
+**Segnalazioni**
+- `GET /signals` - Lista tutte le segnalazioni (pubblico)
+- `GET /signals/:id` - Dettagli segnalazione (pubblico)
+- `POST /signals` - Crea segnalazione (autenticato)
+- `DELETE /signals/:id` - Elimina segnalazione (autenticato, proprietario)
+
+**Commenti**
+- `GET /comments/signals/:id` - Commenti di una segnalazione (pubblico)
+- `POST /comments` - Aggiunti commento (autenticato)
+- `DELETE /comments/:id` - Elimina commento (autenticato, proprietario)
+
+## 🗃️ Struttura del Progetto
+
+``` bash
+streetcats/
+|-- client/                              # Frontend Angular
+|   |-- src/ 
+|   |   |-- app/
+|   |   |   |-- guards/                  # Route guards
+|   |   |   |-- interceptors/            # HTTP interceptors
+|   |   |   |-- pages/                   # Componenti pagina
+|   |   |   |   |-- home/
+|   |   |   |   |-- login/
+|   |   |   |   |-- register/
+|   |   |   |   |-- add-signal/
+|   |   |   |   |-- signals-list/
+|   |   |   |   |-- signal-detail/
+|   |   |   |-- services/                # Servizi Angular
+|   |   |   |-- app.routes.ts            # Routing
+|   |   |-- assets/                      # Risorse statiche
+|   |   |-- environments/                # Configurazioni ambiente
+|   |-- tests/                           # Test Playwright
+|   |-- playwright.config.ts
+|
+|
+|-- server/                              # Backend Node.js/Express
+|   |-- controller/                      # Controller logica business
+|   |   |-- authentication.controller.js
+|   |   |-- signal.controller.js
+|   |   |-- comment.controller.js
+|   |-- middleware/                      # Middleware Express
+|   |   |-- authorization.js
+|   |   |-- upload.middleware.js
+|   |-- models/                          # Modelli Sequelize
+|   |   |-- database.model.js
+|   |   |-- user.model.js
+|   |   |-- signal.model.js
+|   |   |-- comment.model.js
+|   |-- routes/                          # Route Express
+|   |   |-- authentication.router.js
+|   |   |-- signal.router.js
+|   |   |-- comment.router.js
+|   |   |-- geocoding.router.js
+|   |-- uploads/                         # File caricati
+|   |   |-- signals/
+|   |-- .env
+|   |-- index.js
+|
+|
+|-- README.md
+```
 
 
 
