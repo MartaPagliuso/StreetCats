@@ -2,6 +2,21 @@
 <img src="https://img.shields.io/badge/license-MIT-blue.svg" width="70px"> <img src="https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen" width="90px"> <img src="https://img.shields.io/badge/angular-20.3.6-red" width="90px"> 
 
 ## Indice 
+1. [Descrizione](#descrizione)
+2. [Caratteristiche](#caratteristiche)
+   - [Funzionalità principali](#funzionalit-principali)
+   - [Funzionalità utente](#funzionalit-utente)
+3. [Tecnologie](#tecnologie)
+   - [Frontend](#frontend)
+   - [Backend](#backend)
+   - [Database](#database)
+   - [Testing](#testing)
+4. [Prerequisiti](#prerequisiti)
+5. [Installazione](#installazione)
+6. [Utilizzo](#utilizzo)
+   - [Avvio sviluppo](#avvio-sviluppo)
+   - [Principali Endpoint](#principali-endpoint)
+7. [Struttura del Progetto](#struttura-del-progetto)
 
 ## 🎯 Descrizione
 
@@ -45,8 +60,8 @@
 - **Node.js** - Runtime JavaScript
 - **Express.js** - Framework web
 - **Sequelize** - ORM per PostgreSQL
-- **JWTT** - Autenticazione
-- **Multer** - Upoload file
+- **JWT** - Autenticazione
+- **Multer** - Upload file
 - **Swagger** - Documentazione API
 
 ### Database 
@@ -65,7 +80,7 @@ Prima di iniziare, assicurati di aver installato:
 - **PostgreSQL** (v14 o superiore)
 - **Angular CLI** (v20.3.6)
 
-Per verificare le versione installate usa i comandi:
+Per verificare le versioni installate usa i comandi:
 ``` bash
 node --version
 npm --version
@@ -131,7 +146,7 @@ L'applicazione sarà disponibile su `http://localhost:4200`
 
 **Commenti**
 - `GET /comments/signals/:id` - Commenti di una segnalazione (pubblico)
-- `POST /comments` - Aggiunti commento (autenticato)
+- `POST /comments` - Aggiungi commento (autenticato)
 - `DELETE /comments/:id` - Elimina commento (autenticato, proprietario)
 
 ## 🗃️ Struttura del Progetto
