@@ -136,7 +136,7 @@ L'applicazione sarà disponibile su `http://localhost:4200`
 
 ## 🗃️ Struttura del Progetto
 
-``` bash
+``` 
 streetcats/
 |-- client/                              # Frontend Angular
 |   |-- src/ 
