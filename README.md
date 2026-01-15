@@ -166,11 +166,9 @@ DB_UTENTE=postgres
 DB_PASSWORD=tua_password_qui
 
 # JWT Secrets (GENERA CHIAVI CASUALI!)
+JWT_SECRET = "3ec38c0688a84dd1c474714c2bc50e5e"
 TOKEN_SECRET=genera_una_chiave_casuale_lunga_e_sicura
 TOKEN_SECRET_AGGIORNAMENTO=genera_un_altra_chiave_diversa_dalla_prima
-
-# Environment
-NODE_ENV=development
 ```
 ### Creazione cartella uploads
 
