@@ -1,5 +1,5 @@
 # StreetCats - Progetto Tecnologie Web 2024/2025
-<img src="https://img.shields.io/badge/license-MIT-blue.svg" width="70px"> <img src="https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen" width="90px"> <img src="https://img.shields.io/badge/angular-20.3.6-red" width="90px"> 
+<img src="https://img.shields.io/badge/license-MIT-blue.svg" width="70px"> <img src="https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen" width="90px"> <img src="https://img.shields.io/badge/angular-20.3.6-red" width="90px"> <img src="https://img.shields.io/badge/PostgreSQL-14%2B-blue" width="100px">
 
 ## Indice 
 1. [Descrizione](#descrizione)
@@ -26,6 +26,8 @@
 - Commentare e interagire con le segnalazioni della community
 - Tenere traccia dei gatti liberi sul territorio
 
+L'obiettivo è creare una rete di supporto per monitorare e proteggere i gatti randagi.
+
 ## 🌟 Caratteristiche 
 
 ### Funzionalità principali
@@ -38,11 +40,19 @@
 - 🔐 **Autenticazione JWT** - Sistema sicuro con Access e Refresh Token
 - 📱 **Responsive Design** - Ottimizzato per desktop, tablet e mobile
 
-### Funzionalità utente 
+### Funzionalità utente
 
-- Registrazione e login
-- Creazione, visualizzazione ed eliminazione segnalazioni
-- Aggiunta ed eliminazione commenti
+**Non Autenticato**:
+- Visualizzazione mappa e segnalazioni
+- Visualizzazione dettagli segnalazione
+- Visualizzazione commenti
+
+**Autenticato**: 
+- Tutte le funzionalità sopra +
+- Creazione segnalazioni
+- Eliminazione delle proprie segnalazioni
+- Aggiunta commenti
+- Eliminazione propri commenti
 
 ## 🛠️ Tecnologie 
 
@@ -66,7 +76,7 @@
 
 ### Database 
 
-- **PostgreSQL** - Database relazionale
+- **PostgreSQL** (v14+) - Database relazionale
 
 ### Testing
 
@@ -75,17 +85,31 @@
 ## 📦 Prerequisiti
 
 Prima di iniziare, assicurati di aver installato:
-- **Node.js** (v18 o superiore)
-- **npm** (v9 o superiore)
-- **PostgreSQL** (v14 o superiore)
-- **Angular CLI** (v20.3.6)
+| Software | Versione minima | Come verificare | 
+| :---: | :---: | :---: | 
+| Node.js | v18.0.0 | `node --version` | 
+| npm | v9.0.0 | `npm --version` | 
+| PostgreSQL | v14.0 | `psql --version` | 
+| AngularCLI | v20.3.6 | `ng version` |
 
-Per verificare le versioni installate usa i comandi:
-``` bash
-node --version
-npm --version
-psql --version
-ng version
+### Installazione PostgreSQL
+
+**Windows**: 
+```bash
+# Scarica da https://www.postgresql.org/download/windows/
+```
+
+**macOS**
+```bash
+brew install postgresql@14
+brew services start postgresql@14
+```
+
+**Linux**
+```bash
+sudo apt update
+sudo apt install postgresql postgresql-contrib
+sudo systemctl start postgresql
 ```
 
 ## 🚀 Installazione
@@ -97,18 +121,63 @@ git clone https://github.com/MartaPagliuso/StreetCats.git
 cd streetcats
 ```
 
-### 2. Setup Backend
+### 2. Setup Database
+
+```bash
+# Accedi a PostgreSQL
+psql -U postgres
+
+# Crea il database
+CREATE DATABASE streetcats;
+
+# Esci
+\q
+```
+
+### 3. Setup Backend
 
 ``` bash
 cd server
 npm install
+
+# Crea il file .env (vedi sezione Configurazione)
+cp .env.example .env
+# Modifica .env con i tuoi dati
 ```
 
-### 3. Setup Frontend
+### 4. Setup Frontend
 
 ``` bash
 cd ../client
 npm install
+```
+
+## ⚙️ Configurazione
+
+### File .env (Backend)
+
+Crea un file `.env` nella cartella `server/` con il seguente contenuto:
+```env
+# Database Configuration
+DB_HOST=localhost
+DB_PORTA=5432
+DB_NOME=streetcats
+DB_UTENTE=postgres
+DB_PASSWORD=tua_password_qui
+
+# JWT Secrets (GENERA CHIAVI CASUALI!)
+TOKEN_SECRET=genera_una_chiave_casuale_lunga_e_sicura
+TOKEN_SECRET_AGGIORNAMENTO=genera_un_altra_chiave_diversa_dalla_prima
+
+# Environment
+NODE_ENV=development
+```
+### Creazione cartella uploads
+
+```bash
+# Nel server, crea la cartella per le immagini
+cd server
+mkdir -p uploads/signals
 ```
 
 ## 🎮 Utilizzo
@@ -130,24 +199,90 @@ ng serve
 
 L'applicazione sarà disponibile su `http://localhost:4200`
 
+## 🧪 Testing 
+
+Il progetto utilizza **Playwright** per i test E2E.
+
+**Eseguire i test**
+```bash
+cd client
+
+# Installa Playwright (prima volta)
+npx playwright install
+
+# Esegui tutti i test
+npm test
+
+# Esegui test in modalità UI
+npx playwright test --ui
+
+# Esegui test specifico
+npx playwright test streetcats.spec.ts
+
+# Genera report HTML
+npx playwright show-report
+```
+
+**Test Coperti**
+- **TEST 1**: La HomePage dovrebbe visualizzare gli elementi principali
+- **TEST 2**: Registrazione di un nuovo utente
+- **TEST 3**: Login con credenziali valide
+- **TEST 4**: Login con credenziali non valide
+- **TEST 5**: Visualizzazione dell'elenco dei segnali
+- **TEST 6**: Visualizzazione dettagli di una segnalazione
+- **TEST 7**: Creazione di una nuova segnalazione (per utenti autenticati)
+- **TEST 8**: Ricerca indirizzo tramite geocoding
+- **TEST 9**: Aggiungere un commento a una segnalazione
+- **TEST 10**: Logout
+- **TEST 11**: Accesso a una pagina protetta senza autenticazione
+- **TEST 12**: L'utente può tornare indietro usando il percorso di navigazione nella pagina di dettaglio di una segnalazione
+- **TEST 13**: Controllo matching delle password in fare di registrazione
+- **TEST 14**: Interazione con la mappa 
+
+## 📚 API Documentation
+
+### Accesso a Swagger
+
+Una volta avviato il backend, accedi alla documentazione interattiva:
+```
+http://localhost:3000/api-docs
+```
+
 ### Principali Endpoint
 
 **Autenticazione**
-- `POST /auth` - Login utente
-- `POST /register` - Registrazione utente
-- `POST /refresh` - Rinnova Access Token
-- `POST /logout` - Logout utente
+| Metodo | Endpoint | Descrizione | Auth |
+| :---: | :---: | :---: | :---: |
+| POST | /auth | Login utente | ❌ |
+| POST | /register | Registrazione | ❌ |
+| POST | /refresh | Rinnova Access Token | 🔒 Cookie |
+| POST | /logout | Logout | 🔒 Cookie |
 
 **Segnalazioni**
-- `GET /signals` - Lista tutte le segnalazioni (pubblico)
-- `GET /signals/:id` - Dettagli segnalazione (pubblico)
-- `POST /signals` - Crea segnalazione (autenticato)
-- `DELETE /signals/:id` - Elimina segnalazione (autenticato, proprietario)
-
+| Metodo | Endpoint | Descrizione | Auth |
+| :---: | :---: | :---: | :---: |
+| GET | /signals | Lista segnalazioni | ❌ |
+| GET | /signals/:id | Dettagli segnalazione | ❌ |
+| POST | /signals | Crea segnalazione | 🔒 JWT | 
+| DELETE | /signals/:id | Elimina segnalazione | 🔒 JWT + Owner |
+ 
 **Commenti**
-- `GET /comments/signals/:id` - Commenti di una segnalazione (pubblico)
-- `POST /comments` - Aggiungi commento (autenticato)
-- `DELETE /comments/:id` - Elimina commento (autenticato, proprietario)
+| Metodo | Endpoint | Descrizione | Auth |
+| :---: | :---: | :---: | :---: |
+| GET | /comments/signals/:id | Commenti di una segnalazione | ❌ |
+| POST | /comments | Aggiungi commento | 🔒 JWT | 
+| DELETE | /comments/:id | Elimina commento | 🔒 JWT + Owner |
+
+**Geocoding**
+| Metodo | Endpoint | Descrizione | Auth |
+| :---: | :---: | :---: | :---: |
+| GET | /geocoding/search?q=address | Cerca indirizzo | ❌ |
+
+**Autenticazione API**
+Le route protette richiedono un Bearer Token nell'header:\
+```http
+Authorization: Bearer <your_access_token>
+```
 
 ## 🗃️ Struttura del Progetto
 
@@ -171,6 +306,7 @@ streetcats/
 |   |   |-- environments/                # Configurazioni ambiente
 |   |-- tests/                           # Test Playwright
 |   |-- playwright.config.ts
+|   |-- .gitignore
 |
 |
 |-- server/                              # Backend Node.js/Express
@@ -191,20 +327,11 @@ streetcats/
 |   |   |-- signal.router.js
 |   |   |-- comment.router.js
 |   |   |-- geocoding.router.js
-|   |-- uploads/                         # File caricati
+|   |-- uploads/                         # File caricati (gitignored)
 |   |   |-- signals/
-|   |-- .env
+|   |-- .env.example                     # Template variabili ambiente
 |   |-- index.js
-|
+|   |-- .gitignore
 |
 |-- README.md
 ```
-
-
-
-
-
-
-
-
-
