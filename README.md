@@ -13,10 +13,11 @@
    - [Testing](#testing)
 4. [Prerequisiti](#prerequisiti)
 5. [Installazione](#installazione)
-6. [Utilizzo](#utilizzo)
-   - [Avvio sviluppo](#avvio-sviluppo)
-   - [Principali Endpoint](#principali-endpoint)
-7. [Struttura del Progetto](#struttura-del-progetto)
+6. [Configurazione](#configurazione)
+7. [Utilizzo](#utilizzo)
+8. [Testing](#testing)
+9. [API Documentation](#api-documentation)
+10. [Struttura del Progetto](#struttura-del-progetto)
 
 ## 🎯 Descrizione
 
