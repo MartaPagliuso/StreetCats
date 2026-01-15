@@ -13,6 +13,7 @@
 9. [API Documentation](#api-documentation)
 10. [Struttura del Progetto](#struttura-del-progetto)
 
+<a id="descrizione"></a>
 ## 🎯 Descrizione
 
 **StreetCats** è una web application che permette agli amanti dei gatti di:
@@ -23,7 +24,8 @@
 
 L'obiettivo è creare una rete di supporto per monitorare e proteggere i gatti randagi.
 
-## 🌟 Caratteristiche 
+<a id="caratteristiche"></a>
+## 🌟 Caratteristiche
 
 ### Funzionalità principali
 
@@ -49,7 +51,8 @@ L'obiettivo è creare una rete di supporto per monitorare e proteggere i gatti r
 - Aggiunta commenti
 - Eliminazione propri commenti
 
-## 🛠️ Tecnologie 
+<a id="tecnologie"></a>
+## 🛠️ Tecnologie
 
 ### Frontend 
 
@@ -77,6 +80,7 @@ L'obiettivo è creare una rete di supporto per monitorare e proteggere i gatti r
 
 - **Playwright** - End-to-End testing
 
+<a id="prerequisiti"></a>
 ## 📦 Prerequisiti
 
 Prima di iniziare, assicurati di aver installato:
@@ -106,7 +110,7 @@ sudo apt update
 sudo apt install postgresql postgresql-contrib
 sudo systemctl start postgresql
 ```
-
+<a id="installazione"></a>
 ## 🚀 Installazione
 
 ### 1. Clona il Repository
@@ -147,6 +151,7 @@ cd ../client
 npm install
 ```
 
+<a id="configurazione"></a>
 ## ⚙️ Configurazione
 
 ### File .env (Backend)
@@ -175,6 +180,7 @@ cd server
 mkdir -p uploads/signals
 ```
 
+<a id="utilizzo"></a>
 ## 🎮 Utilizzo
 
 ### Avvio sviluppo
@@ -194,7 +200,8 @@ ng serve
 
 L'applicazione sarà disponibile su `http://localhost:4200`
 
-## 🧪 Testing 
+<a id="testing"></a>
+## 🧪 Testing
 
 Il progetto utilizza **Playwright** per i test E2E.
 
@@ -234,6 +241,7 @@ npx playwright show-report
 - **TEST 13**: Controllo matching delle password in fare di registrazione
 - **TEST 14**: Interazione con la mappa 
 
+<a id="api-documentation"></a>
 ## 📚 API Documentation
 
 ### Accesso a Swagger
@@ -279,6 +287,7 @@ Le route protette richiedono un Bearer Token nell'header:\
 Authorization: Bearer <your_access_token>
 ```
 
+<a id="struttura-del-progetto"></a>
 ## 🗃️ Struttura del Progetto
 
 ``` 
