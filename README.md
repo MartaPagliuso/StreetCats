@@ -4,13 +4,7 @@
 ## Indice 
 1. [Descrizione](#descrizione)
 2. [Caratteristiche](#caratteristiche)
-   - [Funzionalità principali](#funzionalit-principali)
-   - [Funzionalità utente](#funzionalit-utente)
 3. [Tecnologie](#tecnologie)
-   - [Frontend](#frontend)
-   - [Backend](#backend)
-   - [Database](#database)
-   - [Testing](#testing)
 4. [Prerequisiti](#prerequisiti)
 5. [Installazione](#installazione)
 6. [Configurazione](#configurazione)
